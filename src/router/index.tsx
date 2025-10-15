@@ -6,6 +6,8 @@ import ProtectedPage from "../pages/ProtectedPage.tsx";
 import NotFoundPage from "../pages/404Page.tsx";
 import AuthProtectedRoute from "./AuthProtectedRoute.tsx";
 import Providers from "../Providers.tsx";
+import DashboardPage from "../pages/DashboardPage.tsx";
+
 
 const router = createBrowserRouter([
   // I recommend you reflect the routes here in the pages folder
@@ -29,11 +31,16 @@ const router = createBrowserRouter([
       // Auth Protected routes
       {
         path: "/",
-        element: <AuthProtectedRoute />,
-        children: [
-          {
-            path: "/protected",
-            element: <ProtectedPage />,
+  element: <AuthProtectedRoute />,
+  children: [
+    {
+      path: "/protected",
+      element: <ProtectedPage />,
+    },
+    {
+      path: "/portal",
+      element: <DashboardPage />,
+    
           },
         ],
       },
